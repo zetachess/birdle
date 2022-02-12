@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const CurrentRow = ({ guess }: Props) => {
-  const splitGuess = guess.split('')
+  const splitGuess = [...Array.from(guess)];
   const emptyCells = Array.from(Array(MAX_WORD_LENGTH - splitGuess.length))
 
   return (

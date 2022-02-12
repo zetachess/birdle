@@ -18,8 +18,7 @@ export const generateEmojiGrid = (guesses: string[]) => {
   return guesses
     .map((guess) => {
       const status = getGuessStatuses(guess)
-      return guess
-        .split('')
+      return Array.from(guess)
         .map((_, i) => {
           switch (status[i]) {
             case 'correct':

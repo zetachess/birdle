@@ -8,7 +8,7 @@ export const getStatuses = (
   const charObj: { [key: string]: CharStatus } = {}
 
   guesses.forEach((word) => {
-    word.split('').forEach((letter, i) => {
+    Array.from(word).forEach((letter, i) => {
       if (!solution.includes(letter)) {
         // make status absent
         return (charObj[letter] = 'absent')
@@ -30,12 +30,12 @@ export const getStatuses = (
 }
 
 export const getGuessStatuses = (guess: string): CharStatus[] => {
-  const splitSolution = solution.split('')
-  const splitGuess = guess.split('')
+  const splitSolution = [...Array.from(solution)]
+  const splitGuess = [...Array.from(guess)];
 
   const solutionCharsTaken = splitSolution.map((_) => false)
 
-  const statuses: CharStatus[] = Array.from(Array(guess.length))
+  const statuses: CharStatus[] = Array.from(Array(Array.from(guess).length))
 
   // handle all correct cases first
   splitGuess.forEach((letter, i) => {

@@ -6,6 +6,7 @@ import { MAX_WORD_LENGTH, REVEAL_TIME_MS } from '../../constants/settings'
 type Props = {
   children?: ReactNode
   value: string
+  isEmoji?: boolean
   width?: number
   status?: CharStatus
   onClick: (value: string) => void
@@ -17,13 +18,15 @@ export const Key = ({
   status,
   width = 40,
   value,
+  isEmoji = false,
   onClick,
   isRevealing,
 }: Props) => {
   const keyDelayMs = REVEAL_TIME_MS * MAX_WORD_LENGTH
 
   const classes = classnames(
-    'flex items-center justify-center rounded mx-0.5 text-xs font-bold cursor-pointer select-none dark:text-white',
+    'flex items-center justify-center rounded mx-0.5 font-bold cursor-pointer select-none dark:text-white',
+    isEmoji ? 'text-xl' : 'text-xs',
     {
       'transition ease-in-out': isRevealing,
       'bg-slate-200 dark:bg-slate-600 hover:bg-slate-300 active:bg-slate-400':
