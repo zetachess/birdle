@@ -74,6 +74,7 @@ Open [http://localhost:3000](http://localhost:3000) in browser.
 - [Passwordle](https://passwordle.sp8c3.com/): Passwords
 - [Genel](https://andrewholding.github.io/gene-wordle/): Gene symbols
 - [Numble](https://rbrignall.github.io/numble/): Maths
+- [Birdle](https://birdle.dev): Bird emojis
 
 _Want to add one to the list? Just make a pull request or [let us know via a comment here](https://github.com/cwackerfuss/react-wordle/issues/120)_
 
