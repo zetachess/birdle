@@ -1,8 +1,10 @@
-# React Wordle
+# Birdle
 
-This is a clone project of the popular word guessing game we all know and love. Made using React, Typescript, and Tailwind.
+This is a wordle clone featuring bird emojis! 🦜🦉🦅
 
-[**Try out the demo!**](https://reactle.vercel.app/)
+It's based on the [react-wordle](https://github.com/cwackerfuss/react-wordle) project, made using React, Typescript, and Tailwind.
+
+[**Try out the demo!**](https://birdle.dev/)
 
 ## Build and run
 
