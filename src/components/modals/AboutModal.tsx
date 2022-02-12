@@ -12,11 +12,15 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
         This is an open source version of the word guessing game we all know and
         love -{' '}
         <a
-          href="https://github.com/cwackerfuss/react-wordle"
+          href="https://github.com/jleverenz/birdle"
           className="underline font-bold"
         >
           check out the code here
-        </a>{' '}
+        </a>, forked from the original clone{' '}
+        <a
+          href="https://github.com/cwackerfuss/react-wordle"
+          className="underline font-bold"
+        >here</a>
       </p>
     </BaseModal>
   )
