@@ -2,6 +2,7 @@ import { getStatuses } from '../../lib/statuses'
 import { Key } from './Key'
 import { useEffect } from 'react'
 import { ENTER_TEXT, DELETE_TEXT } from '../../constants/strings'
+import { keys } from '../../constants/keys'
 
 type Props = {
   onChar: (value: string) => void
@@ -52,7 +53,7 @@ export const Keyboard = ({
   return (
     <div>
       <div className="flex justify-center mb-1">
-        {['🐦', '🐓', '🦤', '🦃', '🦚'].map((key) => (
+        {keys[0].map((key) => (
           <Key
             value={key}
             key={key}
@@ -64,7 +65,7 @@ export const Keyboard = ({
         ))}
       </div>
       <div className="flex justify-center mb-1">
-        {['🦜', '🦅', '🐧', '🦉', '🥚'].map((key) => (
+        {keys[1].map((key) => (
           <Key
             value={key}
             key={key}
@@ -79,6 +80,18 @@ export const Keyboard = ({
         <Key width={65.4} value="ENTER" onClick={onClick}>
           {ENTER_TEXT}
         </Key>
+        <div className="flex justify-center mb-1">
+        {keys[2].map((key) => (
+          <Key
+            value={key}
+            key={key}
+            isEmoji={true}
+            onClick={onClick}
+            status={charStatuses[key]}
+            isRevealing={isRevealing}
+          />
+        ))}
+      </div>
         <Key width={65.4} value="DELETE" onClick={onClick}>
           {DELETE_TEXT}
         </Key>

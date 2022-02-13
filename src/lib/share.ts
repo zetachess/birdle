@@ -1,14 +1,17 @@
 import { getGuessStatuses } from './statuses'
 import { solutionIndex } from './words'
 import { GAME_TITLE } from '../constants/strings'
+import { birdAwards } from '../constants/keys'
 
 export const shareStatus = (
   guesses: string[],
   lost: boolean,
   isHardMode: boolean
 ) => {
+  const awardEmoji = lost ? '🥚' : birdAwards[guesses.length - 1];
+
   navigator.clipboard.writeText(
-    `${GAME_TITLE} ${solutionIndex} ${lost ? 'X' : guesses.length}/6${
+      `${GAME_TITLE} ${awardEmoji} ${solutionIndex} ${lost ? 'X' : guesses.length}/6${
       isHardMode ? '*' : ''
     }\n\n` + generateEmojiGrid(guesses)
   )
