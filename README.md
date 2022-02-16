@@ -43,6 +43,7 @@ Open [http://localhost](http://localhost) in browser.
 ### Other languages
 
 - [Arwordle](https://arwordle.netlify.app/): Arabic
+- [Boludle](https://www.boludle.com/): Argentinian
 - [Gerdle](https://gerdle.vext.co.uk/): Cornish (Kernowek)
 - [Keclap](https://keclap.xyz/): Sundanese
 - [Kelmaly](https://kelmaly.com/): Arabic
