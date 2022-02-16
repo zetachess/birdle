@@ -27,13 +27,13 @@ export const findFirstUnusedReveal = (word: string, guesses: string[]) => {
       lettersLeftArray.push([...Array.from(guess)][i])
     }
     if (statuses[i] === 'correct' && [...Array.from(word)][i] !== [...Array.from(guess)][i]) {
-        return WRONG_SPOT_MESSAGE([...Array.from(guess)][i], i + 1)
+      return WRONG_SPOT_MESSAGE([...Array.from(guess)][i], i + 1)
     }
   }
 
   // check for the first unused letter, taking duplicate letters
   // into account - see issue #198
-  let n;
+  let n
   for (const letter of word) {
     n = lettersLeftArray.indexOf(letter)
     if (n !== -1) {
