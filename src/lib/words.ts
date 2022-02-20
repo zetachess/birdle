@@ -1,6 +1,7 @@
 import { WORDS } from '../constants/wordlist'
 import { WRONG_SPOT_MESSAGE, NOT_CONTAINED_MESSAGE } from '../constants/strings'
 import { getGuessStatuses } from './statuses'
+import { default as GraphemeSplitter } from 'grapheme-splitter'
 
 export const isWordInWordList = (word: string) => {
   return true;
@@ -45,6 +46,14 @@ export const findFirstUnusedReveal = (word: string, guesses: string[]) => {
     return NOT_CONTAINED_MESSAGE(lettersLeftArray[0])
   }
   return false
+}
+
+export const unicodeSplit = (word: string) => {
+  return new GraphemeSplitter().splitGraphemes(word)
+}
+
+export const unicodeLength = (word: string) => {
+  return unicodeSplit(word).length
 }
 
 export const getWordOfDay = () => {
