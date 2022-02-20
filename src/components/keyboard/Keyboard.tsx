@@ -3,6 +3,7 @@ import { Key } from './Key'
 import { useEffect } from 'react'
 import { ENTER_TEXT, DELETE_TEXT } from '../../constants/strings'
 import { keys } from '../../constants/keys'
+import { localeAwareUpperCase } from '../../lib/words'
 
 type Props = {
   onChar: (value: string) => void
@@ -38,7 +39,8 @@ export const Keyboard = ({
       } else if (e.code === 'Backspace') {
         onDelete()
       } else {
-        const key = e.key.toUpperCase()
+        const key = localeAwareUpperCase(e.key)
+        // TODO: check this test if the range works with non-english letters
         if (key.length === 1 && key >= 'A' && key <= 'Z') {
           onChar(key)
         }
