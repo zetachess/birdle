@@ -124,7 +124,6 @@ Open [http://localhost](http://localhost) in browser.
 - [Stockle](https://stockle.win/): Guess the stock or ETF
 - [Syscordle](https://nezza.github.io/syscordle/): SYSCALL
 - [UNLOCOdle](https://unlocodle.collabital.com/): UNLOCODEs
-- [Birdle](https://birdle.dev): Bird emojis
 
 _Want to add one to the list? Just make a pull request or [let us know via a comment here](https://github.com/cwackerfuss/react-wordle/issues/120)_
 
