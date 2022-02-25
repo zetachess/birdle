@@ -307,7 +307,10 @@ function App() {
       />
 
       <Alert message={NOT_ENOUGH_LETTERS_MESSAGE} isOpen={isNotEnoughLetters} />
-      <Alert message={WORD_NOT_FOUND_MESSAGE} isOpen={false} />
+      <Alert
+        message={WORD_NOT_FOUND_MESSAGE}
+        isOpen={isWordNotFoundAlertOpen}
+      />
       <Alert message={missingLetterMessage} isOpen={isMissingPreviousLetters} />
       <Alert
         message={CORRECT_WORD_MESSAGE(solution)}
