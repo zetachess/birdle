@@ -33,7 +33,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="🐦" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The 🦃 is in the word but in the wrong spot.
+        The 🦃 is in the solution but in the wrong spot.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
