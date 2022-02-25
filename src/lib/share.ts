@@ -3,6 +3,7 @@ import { solutionIndex } from './words'
 import { GAME_TITLE } from '../constants/strings'
 import { birdAwards } from '../constants/keys'
 import { getStoredIsHighContrastMode } from './localStorage'
+import { MAX_CHALLENGES } from '../constants/settings'
 
 export const shareStatus = (
   guesses: string[],
@@ -12,9 +13,10 @@ export const shareStatus = (
   const awardEmoji = lost ? '🥚' : birdAwards[guesses.length - 1];
 
   navigator.clipboard.writeText(
-      `${GAME_TITLE} ${awardEmoji} ${solutionIndex} ${lost ? 'X' : guesses.length}/6${
-      isHardMode ? '*' : ''
-    }\n\n` + generateEmojiGrid(guesses)
+    `${GAME_TITLE} ${awardEmoji} ${solutionIndex} ${
+      lost ? 'X' : guesses.length
+    }/${MAX_CHALLENGES}${isHardMode ? '*' : ''}\n\n` +
+      generateEmojiGrid(guesses)
   )
 }
 
