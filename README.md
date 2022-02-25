@@ -61,6 +61,8 @@ Open [http://localhost](http://localhost) in browser.
 - [Keclap](https://keclap.xyz/): Sundanese
 - [kelma.mt](https://kelma.mt): Maltese
 - [Wordle (BOS)](https://elahmo.github.io/wordle/): Bosnian
+- [Lexoula](https://lexoula.com/): Ελληνικά (Greek)
+- [Wordle (Spanish)](https://wordle-es.xavier.cc): Spanish/Espanol
 
 ### Fun themes
 
@@ -86,7 +88,9 @@ Open [http://localhost](http://localhost) in browser.
 - [AI-powered](https://github.com/asirota/wordle-ai): Includes an AI component
 - [Passwordle](https://passwordle.sp8c3.com/): Passwords
 - [Genel](https://andrewholding.github.io/gene-wordle/): Gene symbols
+- [Rundle](https://furstenheim.github.io/react-wordle/): Like wordle, but only last three guesses are considered.
 - [Numble](https://rbrignall.github.io/numble/): Maths
+- [Opsle](https://opsle.vercel.app/): Ops
 - [Birdle](https://birdle.dev): Bird emojis
 
 _Want to add one to the list? Just make a pull request or [let us know via a comment here](https://github.com/cwackerfuss/react-wordle/issues/120)_
@@ -119,9 +123,16 @@ _Want to add one to the list? Just make a pull request or [let us know via a com
 
 ### How can I add usage tracking?
 
-This repository includes support for Google Analytics, but, by default, this is disabled. To enable Google Analytics:
+This repository includes support for Google Analytics or [Plausible Analytics](https://plausible.io), but, by default, this is disabled.
+
+To enable Google Analytics:
 
 - Create a Google Analytics 4 property and obtain the measurement ID (of the format `G-XXXXXXXXXX`)
 - In [.env](.env), add `REACT_APP_GOOGLE_MEASUREMENT_ID=G-XXXXXXXXXX`
 
 Keep in mind that your region might have legislation about obtaining a user's consent before enabling trackers. This is up to downstream repos to implement.
+
+To enable Plausible Analytics:
+
+- Create a new website with Plausible Analytics with a given domain, e.g. `example.app`
+- In [.env](.env), add `REACT_APP_PLAUSIBLE_DOMAIN=example.app`
