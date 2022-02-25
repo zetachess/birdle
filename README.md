@@ -20,12 +20,23 @@ $> npm run start
 
 ### To build/run docker container:
 
+#### Development
+
 ```bash
-$> docker build -t game .
-$> docker run -d -p 3000:3000 game
+$> docker build -t game:dev .
+$> docker run -d -p 3000:3000 game:dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in browser.
+
+#### Production
+
+```bash
+$> docker build --target=prod -t game:prod .
+$> docker run -d -p 80:80 game:prod
+```
+
+Open [http://localhost](http://localhost) in browser.
 
 ## Projects built using this repo
 
@@ -100,7 +111,7 @@ _Want to add one to the list? Just make a pull request or [let us know via a com
 - Update the strings in [src/constants/strings.ts](src/constants/strings.ts)
 - Add all of the five letter words in the language to [src/constants/validGuesses.ts](src/constants/validGuesses.ts), replacing the English words
 - Add a list of goal words in the language to [src/constants/wordlist.ts](src/constants/wordlist.ts), replacing the English words
-- Update the "About" modal in [src/components/modals/AboutModal.tsx](src/components/modals/AboutModal.tsx)
+- Update the "Settings" modal in [src/components/modals/SettingsModal.tsx](src/components/modals/SettingsModal.tsx)
 - Update the "Info" modal in [src/components/modals/InfoModal.tsx](src/components/modals/InfoModal.tsx)
 - If the language has letters that are not present in English update the keyboard in [src/components/keyboard/Keyboard.tsx](src/components/keyboard/Keyboard.tsx)
 - If the language's letters are made of multiple unicode characters, use a grapheme splitter at various points throughout the app or normalize the input so that all of the letters are made of a single character

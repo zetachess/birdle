@@ -46,6 +46,21 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
       <p className="text-sm text-gray-500 dark:text-gray-300">
         The 🦅 is not in the solution in any spot.
       </p>
+
+      <p className="mt-6 italic text-sm text-gray-500 dark:text-gray-300">
+        This is an open source version of the word guessing game we all know and
+        love -{' '}
+        <a
+          href="https://github.com/jleverenz/birdle"
+          className="underline font-bold"
+        >
+          check out the code here
+        </a>, forked from the original clone{' '}
+        <a
+          href="https://github.com/cwackerfuss/react-wordle"
+          className="underline font-bold"
+        >here</a>{' '}
+      </p>
     </BaseModal>
   )
 }
