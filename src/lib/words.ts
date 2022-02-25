@@ -24,10 +24,10 @@ export const findFirstUnusedReveal = (word: string, guesses: string[]) => {
 
   for (let i = 0; i < guess.length; i++) {
     if (statuses[i] === 'correct' || statuses[i] === 'present') {
-      lettersLeftArray.push(guess[i])
+      lettersLeftArray.push([...Array.from(guess)][i])
     }
-    if (statuses[i] === 'correct' && word[i] !== guess[i]) {
-        return WRONG_SPOT_MESSAGE(guess[i], i + 1)
+    if (statuses[i] === 'correct' && [...Array.from(word)][i] !== [...Array.from(guess)][i]) {
+        return WRONG_SPOT_MESSAGE([...Array.from(guess)][i], i + 1)
     }
   }
 
