@@ -1,3 +1,4 @@
+import { WRONG_SPOT_MESSAGE, NOT_CONTAINED_MESSAGE } from '../constants/strings'
 import { solution, unicodeSplit } from './words'
 
 export type CharStatus = 'absent' | 'present' | 'correct'
@@ -72,4 +73,43 @@ export const getGuessStatuses = (guess: string): CharStatus[] => {
   })
 
   return statuses
+}
+
+// build a set of previously revealed letters - present and correct
+// guess must use correct letters in that space and any other revealed letters
+// also check if all revealed instances of a letter are used (i.e. two C's)
+export const findFirstUnusedReveal = (word: string, guesses: string[]) => {
+  if (guesses.length === 0) {
+    return false
+  }
+
+  const lettersLeftArray = new Array<string>()
+  const guess = guesses[guesses.length - 1]
+  const statuses = getGuessStatuses(guess)
+  const splitWord = unicodeSplit(word)
+  const splitGuess = unicodeSplit(guess)
+
+  for (let i = 0; i < splitGuess.length; i++) {
+    if (statuses[i] === 'correct' || statuses[i] === 'present') {
+      lettersLeftArray.push(splitGuess[i])
+    }
+    if (statuses[i] === 'correct' && splitWord[i] !== splitGuess[i]) {
+      return WRONG_SPOT_MESSAGE(splitGuess[i], i + 1)
+    }
+  }
+
+  // check for the first unused letter, taking duplicate letters
+  // into account - see issue #198
+  let n
+  for (const letter of splitWord) {
+    n = lettersLeftArray.indexOf(letter)
+    if (n !== -1) {
+      lettersLeftArray.splice(n, 1)
+    }
+  }
+
+  if (lettersLeftArray.length > 0) {
+    return NOT_CONTAINED_MESSAGE(lettersLeftArray[0])
+  }
+  return false
 }
