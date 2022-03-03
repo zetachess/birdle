@@ -1,4 +1,4 @@
-// npm run makewords > src/constants/wordlist.ts
+// npm run makewords
 
 import { flatKeys } from './src/constants/keys'
 
@@ -21,11 +21,17 @@ function shuffle<T>(array: T[]): T[] {
   return array;
 }
 
+function make_word(): string {
+  let lastChoice: string | undefined = undefined;
+  return Array.from(Array(5)).map(i => {
+    const possibleChoices = flatKeys.filter(item => item != lastChoice);
+    lastChoice = shuffle(possibleChoices)[0];
+    return lastChoice
+  }).join('');
+}
+
 console.log('export const WORDS = [');
-
-Array.from(Array(100)).forEach(_ => {
-  const birds = Array.from(Array(5)).map(i => shuffle(flatKeys)[0]).join('');
-  console.log(`    '${birds}',`);
+Array.from(Array(500)).forEach(_ => {
+  console.log(`    '${make_word()}',`);
 });
-
 console.log(']');
