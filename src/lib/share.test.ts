@@ -4,7 +4,17 @@ const mockSolutionGetter = jest.fn()
 jest.mock('./words', () => ({
   ...jest.requireActual('./words'),
   get solution() {
-    return mockSolutionGetter()
+    // TODO A try/catch block is needed here since `solution` may be referenced
+    // during module import, triggering this getter before being completely
+    // initialized. A refactor of `solution` might be a better approach.
+    try {
+      return mockSolutionGetter()
+    } catch (e) {
+      if (!(e instanceof ReferenceError)) {
+        throw e
+      }
+      return ''
+    }
   },
 }))
 
